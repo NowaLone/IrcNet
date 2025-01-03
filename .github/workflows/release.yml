@@ -1,0 +1,92 @@
+name: Release
+
+on:
+  push:
+    # Sequence of patterns matched against refs/tags
+    tags:
+      - "v*" # Push events to matching v*, i.e. v1.0, v20.15.10
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build
+    runs-on: [self-hosted, windows-2022]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+          clean: true
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            3.1.x
+            6.0.x
+            8.0.x
+      - name: Restore dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build --no-restore --configuration Release
+      - name: Pack NuGet
+        run: dotnet pack --configuration Release
+      - name: Upload packages artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: nupkgs
+          path: src/**/*.nupkg
+          if-no-files-found: error
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ env.GitVersion_SemVer }}
+          release_name: v${{ env.GitVersion_SemVer }}
+          draft: false
+          prerelease: false
+          body_path: CHANGELOG.md
+
+  publish_to_gpr:
+    name: Publish to GPR
+    needs: build
+    runs-on: [self-hosted, windows-2022]
+    steps:
+      - name: Cleanup
+        run: Get-ChildItem **.nupkg -Recurse | Remove-Item -Force
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+          source-url: https://nuget.pkg.github.com/NowaLone/index.json
+        env:
+          NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - name: Download packages artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: nupkgs
+      - name: Publish the package to GPR
+        run: dotnet nuget push **.nupkg
+
+  publish_to_nuget:
+    name: Publish to NuGet
+    needs: build
+    runs-on: [self-hosted, windows-2022]
+    steps:
+      - name: Cleanup
+        run: Get-ChildItem **.nupkg -Recurse | Remove-Item -Force
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+          source-url: https://api.nuget.org/v3/index.json
+        env:
+          NUGET_AUTH_TOKEN: ${{ secrets.NUGET_TOKEN }}
+      - name: Download packages artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: nupkgs
+      - name: Publish the package to nuget.org
+        run: dotnet nuget push **.nupkg --api-key ${{ secrets.NUGET_TOKEN }} --source https://api.nuget.org/v3/index.json

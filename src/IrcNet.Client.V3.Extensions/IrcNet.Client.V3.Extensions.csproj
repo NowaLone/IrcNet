@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<Description>This package contains extensions for the IrcNet.Client library, implementing IRCv3 specifications.</Description>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\IrcNet.Client.Extensions.Core\IrcNet.Client.Extensions.Core.csproj" />
+		<ProjectReference Include="..\IrcNet.Client\IrcNet.Client.csproj" />
+		<ProjectReference Include="..\IrcNet.Parser.V3\IrcNet.Parser.V3.csproj" />
+	</ItemGroup>
+
+</Project>

@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<Description>IrcNet.Parser.Rfc1459 is a library for parsing IRC messages according to the RFC 1459 specifications.</Description>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\IrcNet.Abstractions\IrcNet.Abstractions.csproj" />
+	</ItemGroup>
+
+</Project>

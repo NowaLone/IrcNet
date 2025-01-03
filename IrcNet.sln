@@ -1,0 +1,95 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IrcNet.Abstractions", "src\IrcNet.Abstractions\IrcNet.Abstractions.csproj", "{29742FE5-D783-49F5-8337-DFB60CE01060}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D15F53D6-C72C-4DEA-B9C0-75784A155027}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{E0EF1C41-FE60-4BA9-9C71-88ED952CCAD0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IrcNet.Client", "src\IrcNet.Client\IrcNet.Client.csproj", "{6891E0A0-EA38-408C-9A7E-A5892491E7B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IrcNet.Parser.Rfc1459", "src\IrcNet.Parser.Rfc1459\IrcNet.Parser.Rfc1459.csproj", "{8DC47CDC-B284-4172-8A61-5EA80841CA86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IrcNet.Parser.V3", "src\IrcNet.Parser.V3\IrcNet.Parser.V3.csproj", "{967CAACD-230F-48A3-92AD-4D2021AA7FA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IrcNet.Client.Tests", "tests\IrcNet.Client.Tests\IrcNet.Client.Tests.csproj", "{039E311A-F482-4E3E-ABA6-9476BDD1C112}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IrcNet.Parser.Rfc1459.Tests", "tests\IrcNet.Parser.Rfc1459.Tests\IrcNet.Parser.Rfc1459.Tests.csproj", "{2E463B50-62B3-49C5-9C34-F26CCFB03C25}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IrcNet.Client.Extensions.Core", "src\IrcNet.Client.Extensions.Core\IrcNet.Client.Extensions.Core.csproj", "{E00B81CF-0505-4C57-B54B-581713C79096}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IrcNet.Client.Rfc1459.Extensions", "src\IrcNet.Client.Rfc1459.Extensions\IrcNet.Client.Rfc1459.Extensions.csproj", "{346A2440-7F6B-435E-9D6E-0CBBD223C27A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IrcNet.Client.V3.Extensions", "src\IrcNet.Client.V3.Extensions\IrcNet.Client.V3.Extensions.csproj", "{A7C2E3DA-C84A-482A-AB8A-E1C1D39C852D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IrcNet.Parser.V3.Tests", "tests\IrcNet.Parser.V3.Tests\IrcNet.Parser.V3.Tests.csproj", "{1B73463E-FB9E-478C-AB3B-5290BE2C9037}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{29742FE5-D783-49F5-8337-DFB60CE01060}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29742FE5-D783-49F5-8337-DFB60CE01060}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29742FE5-D783-49F5-8337-DFB60CE01060}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29742FE5-D783-49F5-8337-DFB60CE01060}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6891E0A0-EA38-408C-9A7E-A5892491E7B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6891E0A0-EA38-408C-9A7E-A5892491E7B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6891E0A0-EA38-408C-9A7E-A5892491E7B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6891E0A0-EA38-408C-9A7E-A5892491E7B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DC47CDC-B284-4172-8A61-5EA80841CA86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DC47CDC-B284-4172-8A61-5EA80841CA86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DC47CDC-B284-4172-8A61-5EA80841CA86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DC47CDC-B284-4172-8A61-5EA80841CA86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{967CAACD-230F-48A3-92AD-4D2021AA7FA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{967CAACD-230F-48A3-92AD-4D2021AA7FA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{967CAACD-230F-48A3-92AD-4D2021AA7FA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{967CAACD-230F-48A3-92AD-4D2021AA7FA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{039E311A-F482-4E3E-ABA6-9476BDD1C112}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{039E311A-F482-4E3E-ABA6-9476BDD1C112}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{039E311A-F482-4E3E-ABA6-9476BDD1C112}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{039E311A-F482-4E3E-ABA6-9476BDD1C112}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E463B50-62B3-49C5-9C34-F26CCFB03C25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E463B50-62B3-49C5-9C34-F26CCFB03C25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E463B50-62B3-49C5-9C34-F26CCFB03C25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E463B50-62B3-49C5-9C34-F26CCFB03C25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E00B81CF-0505-4C57-B54B-581713C79096}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E00B81CF-0505-4C57-B54B-581713C79096}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E00B81CF-0505-4C57-B54B-581713C79096}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E00B81CF-0505-4C57-B54B-581713C79096}.Release|Any CPU.Build.0 = Release|Any CPU
+		{346A2440-7F6B-435E-9D6E-0CBBD223C27A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{346A2440-7F6B-435E-9D6E-0CBBD223C27A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{346A2440-7F6B-435E-9D6E-0CBBD223C27A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{346A2440-7F6B-435E-9D6E-0CBBD223C27A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7C2E3DA-C84A-482A-AB8A-E1C1D39C852D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7C2E3DA-C84A-482A-AB8A-E1C1D39C852D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7C2E3DA-C84A-482A-AB8A-E1C1D39C852D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7C2E3DA-C84A-482A-AB8A-E1C1D39C852D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B73463E-FB9E-478C-AB3B-5290BE2C9037}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B73463E-FB9E-478C-AB3B-5290BE2C9037}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B73463E-FB9E-478C-AB3B-5290BE2C9037}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B73463E-FB9E-478C-AB3B-5290BE2C9037}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{29742FE5-D783-49F5-8337-DFB60CE01060} = {D15F53D6-C72C-4DEA-B9C0-75784A155027}
+		{6891E0A0-EA38-408C-9A7E-A5892491E7B6} = {D15F53D6-C72C-4DEA-B9C0-75784A155027}
+		{8DC47CDC-B284-4172-8A61-5EA80841CA86} = {D15F53D6-C72C-4DEA-B9C0-75784A155027}
+		{967CAACD-230F-48A3-92AD-4D2021AA7FA0} = {D15F53D6-C72C-4DEA-B9C0-75784A155027}
+		{039E311A-F482-4E3E-ABA6-9476BDD1C112} = {E0EF1C41-FE60-4BA9-9C71-88ED952CCAD0}
+		{2E463B50-62B3-49C5-9C34-F26CCFB03C25} = {E0EF1C41-FE60-4BA9-9C71-88ED952CCAD0}
+		{E00B81CF-0505-4C57-B54B-581713C79096} = {D15F53D6-C72C-4DEA-B9C0-75784A155027}
+		{346A2440-7F6B-435E-9D6E-0CBBD223C27A} = {D15F53D6-C72C-4DEA-B9C0-75784A155027}
+		{A7C2E3DA-C84A-482A-AB8A-E1C1D39C852D} = {D15F53D6-C72C-4DEA-B9C0-75784A155027}
+		{1B73463E-FB9E-478C-AB3B-5290BE2C9037} = {E0EF1C41-FE60-4BA9-9C71-88ED952CCAD0}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {732B70B2-B66D-4394-A546-FBDF6FE58E38}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,7 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<Description>This project contains abstractions for IRC (Internet Relay Chat) functionality, providing interfaces and base classes for building IRC clients and servers.</Description>
+	</PropertyGroup>
+
+</Project>

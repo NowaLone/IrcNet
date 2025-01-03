@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<Description>This package contains extensions for the IrcNet.Client library, implementing RFC 1459.</Description>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\IrcNet.Client.Extensions.Core\IrcNet.Client.Extensions.Core.csproj" />
+		<ProjectReference Include="..\IrcNet.Client\IrcNet.Client.csproj" />
+		<ProjectReference Include="..\IrcNet.Parser.Rfc1459\IrcNet.Parser.Rfc1459.csproj" />
+	</ItemGroup>
+
+</Project>

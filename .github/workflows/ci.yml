@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build & Test
+    strategy:
+      matrix:
+        configuration: [Debug, Release]
+        dotnet: ["net461", "net481", "netcoreapp3.1", "net6.0", "net8.0"]
+
+    runs-on: [self-hosted, windows-2022]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+          clean: true
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            3.1.x
+            6.0.x
+            8.0.x
+      - name: Restore dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build --no-restore --configuration ${{ matrix.configuration }}
+      - name: Test
+        run: dotnet test --no-build --configuration ${{ matrix.configuration }} --framework ${{ matrix.dotnet }} --verbosity normal --logger trx --results-directory "TestResults-${{ matrix.configuration }}-${{ matrix.dotnet }}" --collect "Code Coverage"
+      - name: Upload dotnet test results
+        uses: actions/upload-artifact@v4
+        with:
+          name: dotnet-results-${{ matrix.configuration }}-${{ matrix.dotnet }}
+          path: TestResults-${{ matrix.configuration }}-${{ matrix.dotnet }}
+        # Use always() to always run this step to publish test results when there are test failures
+        if: ${{ always() }}
