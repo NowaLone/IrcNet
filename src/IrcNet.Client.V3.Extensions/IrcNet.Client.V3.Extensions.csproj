@@ -5,9 +5,14 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\IrcNet.Client.Extensions.Core\IrcNet.Client.Extensions.Core.csproj" />
 		<ProjectReference Include="..\IrcNet.Client\IrcNet.Client.csproj" />
 		<ProjectReference Include="..\IrcNet.Parser.V3\IrcNet.Parser.V3.csproj" />
+	</ItemGroup>
+
+	<Import Project="..\IrcNet.Client.Extensions.Core\IrcNet.Client.Extensions.Core.projitems" Label="Shared" />
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.Options" Version="8.0.1" />
 	</ItemGroup>
 
 </Project>
