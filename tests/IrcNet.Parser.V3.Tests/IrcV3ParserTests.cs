@@ -206,7 +206,7 @@ namespace IrcNet.Parser.V3.Tests
 
 		[TestMethod]
 		[TestCategory(nameof(IrcV3Parser.BuildMessage))]
-		public void BuildMessage_WithNullTags_ShouldReturnWithoutTags()
+		public void BuildMessage_WithNullTags_ShouldReturnRawWithoutTags()
 		{
 			// Arrange
 			var parser = new IrcV3Parser();
