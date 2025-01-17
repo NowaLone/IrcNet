@@ -16,6 +16,7 @@ namespace IrcNet.Parser.V3
 		/// <param name="message">The <see cref="IrcV3Message"/> object to build the message from.</param>
 		/// <param name="useNumeric">A boolean indicating whether to use numeric values for commands.</param>
 		/// <returns>A string representing the built IRCv3 message.</returns>
+		/// <inheritdoc cref="IrcParser.BuildMessage(IrcMessage, bool)"/>
 		public virtual string BuildMessage(IrcV3Message message, bool useNumeric = false)
 		{
 			var result = base.BuildMessage(message, useNumeric);
@@ -28,15 +29,10 @@ namespace IrcNet.Parser.V3
 		/// </summary>
 		/// <param name="message">The raw IRC message.</param>
 		/// <returns>An <see cref="IrcV3Message"/> object representing the parsed message.</returns>
-		/// <exception cref="ArgumentException">Thrown when the message is null or whitespace.</exception>
+		/// <inheritdoc cref="IrcParser.ParseMessage(string)"/>
 		public new IrcV3Message ParseMessage(string message)
 		{
-			if (string.IsNullOrWhiteSpace(message))
-			{
-				throw new ArgumentException($"'{nameof(message)}' cannot be null or whitespace.", nameof(message));
-			}
-
-			return message.StartsWith("@") ? ParseWithTags(message) : new IrcV3Message(base.ParseMessage(message));
+			return message != null && message.StartsWith("@") ? ParseWithTags(message) : new IrcV3Message(base.ParseMessage(message));
 		}
 
 		/// <summary>
@@ -70,6 +66,7 @@ namespace IrcNet.Parser.V3
 		/// </summary>
 		/// <param name="message">The raw IRC message to split.</param>
 		/// <returns>An enumerable collection of message parts.</returns>
+		/// <inheritdoc cref="IrcParser.SplitMessageParts(string)"/>
 		protected override IEnumerable<string> SplitMessageParts(string message)
 		{
 			var parts = message.Split(new char[] { ' ' }, 2);
