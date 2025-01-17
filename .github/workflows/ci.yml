@@ -15,6 +15,7 @@ jobs:
       matrix:
         configuration: [Debug, Release]
         dotnet: ["net461", "net481", "netcoreapp3.1", "net6.0", "net8.0"]
+      fail-fast: false
 
     runs-on: [self-hosted, windows-2022]
 
