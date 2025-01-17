@@ -400,12 +400,19 @@ namespace IrcNet.Client
 			{
 				try
 				{
-					if (options.PingDelay != TimeSpan.Zero && IsConnected)
+					if (options.PingDelay != TimeSpan.Zero)
 					{
-						await SendAsync(pingMessage, cancellationToken).ConfigureAwait(false);
-					}
+						if (IsConnected)
+						{
+							await SendAsync(pingMessage, cancellationToken).ConfigureAwait(false);
+						}
 
-					await Task.Delay(options.PingDelay, cancellationToken).ConfigureAwait(false);
+						await Task.Delay(options.PingDelay, cancellationToken).ConfigureAwait(false);
+					}
+					else
+					{
+						await Task.Delay(200, cancellationToken).ConfigureAwait(false);
+					}
 				}
 				catch (OperationCanceledException)
 				{
