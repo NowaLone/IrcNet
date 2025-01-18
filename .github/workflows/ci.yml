@@ -3,9 +3,9 @@ name: CI
 on:
   pull_request:
     branches: [master]
-    paths:
-      - '!*.md'
-      - '!*.png'
+    paths-ignore:
+      - '*.md'
+      - '*.png'
   workflow_dispatch:
 
 jobs:
