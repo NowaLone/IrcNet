@@ -2,46 +2,66 @@
 
 IrcNet is a comprehensive library for building IRC (Internet Relay Chat) clients. It includes abstractions, parsers, and extensions for both RFC 1459 and IRCv3 specifications.
 
+## Download
+
+[![Nuget](https://img.shields.io/nuget/v/NowaLone.IrcNet.Abstractions.svg?logo=nuget&label=NowaLone.IrcNet.Abstractions)](https://www.nuget.org/packages/NowaLone.IrcNet.Abstractions)
+[![Nuget](https://img.shields.io/nuget/v/NowaLone.IrcNet.Client.svg?logo=nuget&label=NowaLone.IrcNet.Client)](https://www.nuget.org/packages/NowaLone.IrcNet.Client)
+[![Nuget](https://img.shields.io/nuget/v/NowaLone.IrcNet.Client.Rfc1459.Extensions.svg?logo=nuget&label=NowaLone.IrcNet.Client.Rfc1459.Extensions)](https://www.nuget.org/packages/NowaLone.IrcNet.Client.Rfc1459.Extensions)
+[![Nuget](https://img.shields.io/nuget/v/NowaLone.IrcNet.Client.V3.Extensions.svg?logo=nuget&label=NowaLone.IrcNet.Client.V3.Extensions)](https://www.nuget.org/packages/NowaLone.IrcNet.Client.V3.Extensions)
+[![Nuget](https://img.shields.io/nuget/v/NowaLone.IrcNet.Parser.Rfc1459.svg?logo=nuget&label=NowaLone.IrcNet.Parser.Rfc1459)](https://www.nuget.org/packages/NowaLone.IrcNet.Parser.Rfc1459)
+[![Nuget](https://img.shields.io/nuget/v/NowaLone.IrcNet.Parser.V3.svg?logo=nuget&label=NowaLone.IrcNet.Parser.V3)](https://www.nuget.org/packages/NowaLone.IrcNet.Parser.V3)
+
 ## Projects
 
 ### IrcNet.Abstractions
+
 This project contains abstractions for IRC functionality, providing interfaces and base classes for building IRC clients.
 
 ### IrcNet.Parser.Rfc1459
+
 A library for parsing IRC messages according to the RFC 1459 specifications.
 
 ### IrcNet.Parser.V3
+
 A library for parsing IRC messages according to the IRCv3 specifications.
 
 ### IrcNet.Client
+
 A core library for building IRC clients.
 
 ### IrcNet.Client.Extensions.Core
+
 This package contains core extensions for the IrcNet.Client library.
 
 ### IrcNet.Client.Rfc1459.Extensions
+
 This package contains extensions for the IrcNet.Client library, implementing RFC 1459.
 
 ### IrcNet.Client.V3.Extensions
+
 This package contains extensions for the IrcNet.Client library, implementing IRCv3 specifications.
 
 ## Tests
 
 ### IrcNet.Parser.Rfc1459.Tests
+
 Unit tests for the IrcNet.Parser.Rfc1459 library.
 
 ### IrcNet.Parser.V3.Tests
+
 Unit tests for the IrcNet.Parser.V3 library.
 
 ## Getting Started
 
 ### Prerequisites
+
 - .NET Framework 4.6.1 or higher
 - .NET Core 3.0 or higher
 - .NET 6 or higher
 - .NET Standard 2.0 or higher
 
 ### Installation
+
 Clone the repository:
 
 ```shell
@@ -49,6 +69,7 @@ git clone https://github.com/NowaLone/IrcNet.git
 ```
 
 ### Building the Solution
+
 Navigate to the solution directory and build the projects using the .NET CLI:
 
 ```shell
@@ -56,6 +77,7 @@ dotnet build
 ```
 
 ### Running Tests
+
 To run the tests, use the .NET CLI:
 
 ```shell
@@ -96,6 +118,7 @@ internal class Program
 ```
 
 ## Acknowledgements
+
 - [RFC 1459](https://tools.ietf.org/html/rfc1459)
 - [RFC 2812](https://tools.ietf.org/html/rfc2812)
 - [IRCv3 Working Group](https://ircv3.net/)
