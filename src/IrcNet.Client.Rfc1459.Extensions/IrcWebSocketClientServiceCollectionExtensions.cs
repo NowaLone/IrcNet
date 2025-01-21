@@ -2,7 +2,9 @@
 using IrcNet.Parser.Rfc1459;
 using System;
 
+#pragma warning disable IDE0130 // Namespace does not match folder structure
 namespace Microsoft.Extensions.DependencyInjection
+#pragma warning restore IDE0130 // Namespace does not match folder structure
 {
 	/// <summary>
 	/// Extension methods for setting up IRC WebSocket client services in an <see cref="IServiceCollection" />.
