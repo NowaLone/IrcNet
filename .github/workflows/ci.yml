@@ -4,8 +4,8 @@ on:
   pull_request:
     branches: [master]
     paths-ignore:
-      - '*.md'
-      - '*.png'
+      - "*.md"
+      - "*.png"
   workflow_dispatch:
 
 jobs:
