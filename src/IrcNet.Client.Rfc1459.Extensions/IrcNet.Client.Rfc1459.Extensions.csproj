@@ -3,6 +3,14 @@
 	<PropertyGroup>
 		<Description>This package contains extensions for the IrcNet.Client library, implementing RFC 1459.</Description>
 	</PropertyGroup>
+	
+	<ItemGroup Condition="'$(TargetFramework)' == 'net461'">
+		<PackageReference Include="Microsoft.Extensions.Options" Version="6.0.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.Options" Version="8.0.2" Condition="'$(TargetFramework)' != 'net461'" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\IrcNet.Client\IrcNet.Client.csproj" />
@@ -10,9 +18,5 @@
 	</ItemGroup>
 
 	<Import Project="..\IrcNet.Client.Extensions.Core\IrcNet.Client.Extensions.Core.projitems" Label="Shared" />
-
-	<ItemGroup>
-		<PackageReference Include="Microsoft.Extensions.Options" Version="8.0.1" />
-	</ItemGroup>
-
+	
 </Project>
