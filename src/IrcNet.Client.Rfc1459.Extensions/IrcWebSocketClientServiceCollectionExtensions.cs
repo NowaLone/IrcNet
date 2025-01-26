@@ -1,9 +1,9 @@
-﻿using IrcNet.Client;
-using IrcNet.Parser.Rfc1459;
+﻿using IrcNet.Parser.Rfc1459;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 
 #pragma warning disable IDE0130 // Namespace does not match folder structure
-namespace Microsoft.Extensions.DependencyInjection
+namespace IrcNet.Client.Extensions
 #pragma warning restore IDE0130 // Namespace does not match folder structure
 {
 	/// <summary>
