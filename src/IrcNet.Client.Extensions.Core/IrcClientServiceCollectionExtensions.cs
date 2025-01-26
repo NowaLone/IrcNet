@@ -1,5 +1,6 @@
 ﻿using IrcNet;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Options;
 using System;
 
 namespace Microsoft.Extensions.DependencyInjection
@@ -14,6 +15,8 @@ namespace Microsoft.Extensions.DependencyInjection
 		{
 			services.TryAddTransient<IIrcClientWebSocket, TClient>();
 			services.TryAddTransient<IIrcParser<TMessage>, TParser>();
+			services.TryAddTransient(s => s.GetRequiredService<IOptions<TOptions>>().Value);
+			services.AddOptions<TOptions>();
 
 			if (setupAction != null)
 			{
