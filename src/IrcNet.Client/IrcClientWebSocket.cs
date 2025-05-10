@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 using System;
+using System.Linq;
 using System.Net.Sockets;
 using System.Net.WebSockets;
 using System.Text;
@@ -200,7 +201,7 @@ namespace IrcNet.Client
 		/// <returns>A task that represents the asynchronous operation.</returns>
 		private async Task ListenerTask(CancellationToken cancellationToken)
 		{
-			var message = string.Empty;
+			var message = Enumerable.Empty<byte>();
 
 			while (!cancellationToken.IsCancellationRequested)
 			{
@@ -226,11 +227,11 @@ namespace IrcNet.Client
 
 						case WebSocketMessageType.Text when !result.EndOfMessage:
 							{
-								message += Encoding.UTF8.GetString(buffer).TrimEnd('\0');
+								message = message.Concat(buffer);
 
 								if (logger.IsEnabled(LogLevel.Trace))
 								{
-									logger.LogTrace(EventIds.MessageReceivedEvent, "Received a message part: \"{Message}\".", message);
+									logger.LogTrace(EventIds.MessageReceivedEvent, "Received a message part: \"{Message}\".", Encoding.UTF8.GetString(buffer).TrimEnd('\0'));
 								}
 								else
 								{
@@ -241,23 +242,23 @@ namespace IrcNet.Client
 
 						case WebSocketMessageType.Text:
 							{
-								message += Encoding.UTF8.GetString(buffer).TrimEnd('\0');
+								message = message.Concat(buffer);
 
 								if (logger.IsEnabled(LogLevel.Trace))
 								{
-									logger.LogTrace(EventIds.MessageReceivedEvent, "Received a full message: \"{Message}\".", message);
+									logger.LogTrace(EventIds.MessageReceivedEvent, "Received a full message: \"{Message}\".", Encoding.UTF8.GetString(message.ToArray()).TrimEnd('\0'));
 								}
 								else
 								{
 									logger.LogDebug(EventIds.MessageReceivedEvent, "Received a full message.");
 								}
 
-								foreach (var line in message.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries))
+								foreach (var line in Encoding.UTF8.GetString(message.ToArray()).TrimEnd('\0').Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries))
 								{
 									OnMessageReceived?.Invoke(this, new MessageReceivedEventArgs(line));
 								}
 
-								message = string.Empty;
+								message = Enumerable.Empty<byte>();
 							}
 							break;
 
